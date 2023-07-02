@@ -53,10 +53,10 @@ p.catch(error => console.log(error.message))
 /*
 !!!!
 const p = new Promise((resolve, reject) => {
-  return Promise.reject(Error('The Fails!'))
-})
-p.catch(error => console.log(error.message))
-p.catch(error => console.log(error.message))
+    reject(Error('The Fails!'))
+  })
+  .catch(error => console.log(error))
+  .then(error => console.log(error))
 !!!!
  */
 
@@ -66,23 +66,12 @@ p.catch(error => console.log(error.message))
 const p = new Promise((resolve, reject) => {
     reject(Error('The Fails!'))
   })
-  .catch(error => console.log(error))
-  .then(error => console.log(error))
+  .catch(error => console.log(error.message))
+  .catch(error => console.log(error.message))
 !!!!
  */
 
 // ============================================= Задача 4 =====================================================
-/*
-!!!!
-const p = new Promise((resolve, reject) => {
-    reject(Error('The Fails!'))
-  })
-  .catch(error => console.log(error.message))
-  .catch(error => console.log(error.message))
-!!!!
- */
-
-// ============================================= Задача 5 =====================================================
 /*
 !!!!
 new Promise((resolve, reject) => {
@@ -98,7 +87,7 @@ new Promise((resolve, reject) => {
 !!!!
  */
 
-// ============================================= Задача 6 =====================================================
+// ============================================= Задача 5 =====================================================
 /*
 !!!!
 Promise.resolve('Success!')
@@ -111,7 +100,7 @@ Promise.resolve('Success!')
 !!!!
  */
 
-// ============================================= Задача 7 =====================================================
+// ============================================= Задача 6 =====================================================
 /*
 !!!!
 Promise.resolve('Success!')
@@ -126,7 +115,7 @@ Promise.resolve('Success!')
 !!!!
  */
 
-// ============================================= Задача 8 =====================================================
+// ============================================= Задача 7 =====================================================
 /*
 !!!!
 Promise.resolve('Success!')
@@ -139,7 +128,7 @@ Promise.resolve('Success!')
 !!!!
  */
 
-// ============================================= Задача 9 =====================================================
+// ============================================= Задача 8 =====================================================
 /*
 !!!!
 Promise.resolve('Success!')
