@@ -48,34 +48,18 @@
 //     console.log(value)
 // }
 //
-// console.log('start')
+// log('Start!')
 //
-// setTimeout(() => {
-//     log('timeout')
-// }, 3000)
+// Promise.resolve('Promise!')
+//     .then(res => log(res))
 //
-// log('end')
+//
+// log('End!')
+
 
 
 //============================== Task queue (очередь) ================================
 // Кто управляет очередями?
-
-
-// function log(value) {
-//     console.log(value)
-// }
-
-// log('1')
-
-// setTimeout(() => {
-//     log('2')
-// }, 0)
-//
-// Promise.resolve().then(() => {
-//     log('3')
-// })
-//
-// log('4')
 
 
 // Как между собой общаются call stack и очередь?
@@ -86,6 +70,45 @@
 
 
 // В каком порядке их берет Event Loop (что выполняется быстрее)?
+
+
+//============================== Задача на закрепление 1 ===============================
+
+// function log(value) {
+//     console.log(value)
+// }
+//
+// log('Start!')
+//
+// setTimeout(() => {
+//     log('Timeout!')
+// }, 0)
+//
+// Promise.resolve('Promise!').then((res) => {
+//     log(res)
+// })
+//
+// log('End!')
+
+
+
+//============================== Задача на закрепление 2 ===============================
+
+// function log(value) {
+//     console.log(value)
+// }
+//
+// const one = () => Promise.resolve('One!')
+//
+// async function myFunc() {
+//     log('In function')
+//     const res = await one()
+//     log(res)
+// }
+//
+// log('Before function')
+// myFunc()
+// log('After function')
 
 
 // Почему акцентируется внимание про МАКРОТАСКУ?
