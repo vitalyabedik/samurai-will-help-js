@@ -1,13 +1,10 @@
 //============================== Event Loop ================================
 // Что такое Event Loop ?
 
-
 // Что позволяет делать?
-
 
 //============================== Call stack ================================
 // Что такое Call stack (стэк)
-
 
 // последовательный вызов функций
 
@@ -38,8 +35,6 @@
 //
 // third()
 
-
-
 // Что если мы хотим показать пользователю код, отложенным через какое-то время (асинхронный)
 
 // function log(value) {
@@ -59,17 +54,11 @@
 //============================== Task queue (очередь) ================================
 // Кто управляет очередями?
 
-
 // Как между собой общаются call stack и очередь?
-
-
-
 
 // Какие очереди существуют и что к ним относится?
 
-
 // В каком порядке их берет Event Loop (что выполняется быстрее)?
-
 
 //============================== Задача на закрепление 1 ===============================
 
@@ -88,8 +77,6 @@
 // })
 //
 // log('End!')
-
-
 
 //============================== Задача на закрепление 2 ===============================
 
@@ -114,9 +101,7 @@
 // micro: Promise: 'One!'
 // macro:
 
-
 // Почему акцентируется внимание про МАКРОТАСКУ?
-
 
 //============================== ИТОГО ===============================
 
@@ -130,7 +115,6 @@
 //
 //
 // console.log('end');
-
 
 // start 1 end
 
@@ -167,7 +151,6 @@
 // console.log('end');
 
 // start 1 3 end 2
-
 
 //====================== Задача 4  ===============
 
@@ -258,7 +241,6 @@
 
 // 1 2 4 success timerStart timerEnd
 
-
 //====================== Задача 9  ===============
 // const timer1 = setTimeout(() => {
 //     console.log('timer1');
@@ -272,10 +254,7 @@
 //     console.log('timer2')
 // }, 0)
 
-
 // timer1 promise1 timer2
-
-
 
 //====================== Задача 10  ===============
 // console.log('start');
@@ -321,7 +300,6 @@
 //mi  3         4      5
 //ma  2            4    6
 
-
 //====================== Задача 12  ===============
 
 // console.log(1);
@@ -337,7 +315,6 @@
 // console.log(6);
 //
 // setTimeout(() => console.log(7),0);
-
 
 // 1 6 3 5 2 4 7
 
@@ -359,12 +336,10 @@
 //     console.log(data)
 // );
 
-
 // 1 3 4 6 2 5 7
 
 // ma 2(1сек),  5(2сек),   7(3сек)
 // mi 4,  6
-
 
 //====================== Задача 15  ===============
 
@@ -431,7 +406,6 @@
 
 // 5 25 25
 
-
 //====================== Задача 18  ===============
 
 // function resolveAfter2Seconds(x) {
@@ -455,32 +429,44 @@
 
 // add1 Hello  20 30 add1 Bye 60
 
-
 //====================== Задача 19  ===============
 // async function first() {
-//     console.log(9);
-//     await Promise.resolve(2).then((r) => console.log(r));
+//   console.log(9);
+//   await Promise.resolve(2).then(r => console.log(r)).then(() => {
 //     console.log(0);
-//     await Promise.resolve(3).then((r) => console.log(r));
+//     return Promise.resolve(3).then(r => console.log(r));
+//   })
+// }
+
+
+// async function first() {
+//   console.log(9);
+//   await Promise.resolve(2).then(r => console.log(r))
+//   console.log(0);
+//   await Promise.resolve(3).then(r => console.log(r));
 // }
 //
 // async function second() {
-//     console.log(10);
-//     await Promise.resolve(4).then((r) => console.log(r));
-//     console.log(11);
-//     await Promise.resolve(5).then((r) => console.log(r));
+//   console.log(10);
+//   await Promise.resolve(4).then(r => console.log(r));
+//   console.log(11);
+//   await Promise.resolve(5).then(r => console.log(r));
 // }
+//
 // first();
 // second();
-// const promises = Promise.resolve("new Promise");
-// promises.then((str) => console.log(str));
+//
+// // 9 10 2 4 new Promise 0 11
+// // mi:
+// //
+//
+// const promises = Promise.resolve('new Promise');
+// promises.then(str => console.log(str));
 
 // 9     2 0 3 10 4 11 5 new Promise
 // 9 10 2 4 new Promise 0 11 3 5
 // mi: 2 4 new Promise 3 5
 // ma:
-
-
 
 //====================== ***Задача 20***  ===============
 //====================== Задача на поломай голову от подписчика)) =========================
